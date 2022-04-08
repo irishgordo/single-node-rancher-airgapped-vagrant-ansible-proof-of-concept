@@ -1,0 +1,3 @@
+
+rancher_config:
+  node_disk_size: 350G
