@@ -2,7 +2,7 @@
 - name: Setup Rancher Single Node AirGapped
   hosts: localhost
   connection: local
-  gather_facts: false
+  gather_facts: true
 
   tasks:
     - name: start up rancher provisioning

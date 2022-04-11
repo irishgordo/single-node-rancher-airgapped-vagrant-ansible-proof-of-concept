@@ -1,0 +1,18 @@
+# ---
+# - name: start up rancher provisioning
+#   shell: echo "starting up rancher single node airgapped provisioning..."
+
+# - name: start up rancher vagrant box
+#   shell: |
+#     vagrant up rancher_box
+#   register: rancher_box_vagrant_up_result
+
+# - debug: var=rancher_box_vagrant_up_result.stdout_lines
+
+# - name: get IP address of rancher_box
+#   shell: |
+#     vagrant ssh-config rancher_box 2>/dev/null | grep HostName | awk '{ print $2 }'
+#   register: vagrant_rancher_box_ip_result
+#   until: vagrant_rancher_box_ip_result != ""
+#   retries: 10
+#   delay: 60

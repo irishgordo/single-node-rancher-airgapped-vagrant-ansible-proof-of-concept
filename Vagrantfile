@@ -35,13 +35,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                 size: @settings['rancher_config']['node_disk_size'],
                 type: 'qcow2',
                 bus: 'virtio',
-                device: 'vdb'
+                device: 'vdb',
+                serial: 'bdef2c36-cfab-4f75-b0f5-7bdae75417ce'
             libvirt.boot 'hd'
         end
         # Do some magic with ansible to provision the server
         rancher_box.vm.provision :ansible do |ansible|
-            #ansible.verbose ="vvv"
-            ansible.playbook = 'ansible/setup_rancher_node.yml'
+            ansible.verbose ="vvv"
+            ansible.playbook = 'ansible/roles/rancher/tasks/_inital.yml'
             ansible.extra_vars = {
                 settings: @settings
             }
